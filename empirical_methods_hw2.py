@@ -71,5 +71,5 @@ print(Stargazer([ols_results]).render_latex())
 # %%
 ### part ii
 ### fixed effects
-fixed_effects = PanelOLS(score_gain_panel[["Test_score_gain"]], score_gain_panel[["divorce", "divorce_missing", "divorce_unknown"]]).fit(cov_type="clustered", cluster_entity=True)
+fixed_effects = PanelOLS(score_gain_panel[["Test_score_gain"]], score_gain_panel[["divorce", "divorce_missing", "divorce_unknown"]], entity_effects=True).fit(cov_type="clustered", cluster_entity=True)
 print(fixed_effects.summary.as_latex())
