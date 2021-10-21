@@ -11,7 +11,7 @@ df = pd.read_stata(r"/Users/yong/Documents/Data/NELS_1988-00_v1_0_Stata_Datasets
 df = df[df.F4UNI2A == 1]
 # %%
 ### score gain calculation
-score = df[["BY2XMSTD", "F12XMSTD", "F22XMSTD"]].copy().apply(lambda x: x.replace([99.98, 99.99, -9.00], np.nan))
+score = df[["BY2XMSTD", "F12XMSTD", "F22XMSTD"]].apply(lambda x: x.replace([99.98, 99.99, -9.00], np.nan))
 score["STU_ID"] = df["STU_ID"]
 score["gain_1"] = score["F12XMSTD"] - score["BY2XMSTD"]
 score["gain_2"] = score["F22XMSTD"] - score["F12XMSTD"]
